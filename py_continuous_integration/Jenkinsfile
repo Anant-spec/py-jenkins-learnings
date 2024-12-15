@@ -18,7 +18,7 @@ pipeline {
 
         stage('checkout') {
             steps {
-                git branch: 'main' ,credentialsId: 'GIT_TOKEN' ,url: 'https://github.com/cbagade/py-jenkins-learnings.git'
+                git branch: 'main' ,credentialsId: 'GIT_TOKEN' ,url: 'https://github.com/Anant-spec/py-jenkins-learnings.git'
             }
         }
 
@@ -42,7 +42,7 @@ pipeline {
 
         stage('BuildDockerImage') {
             steps {
-                sh 'cd py_continuous_integration; . ~/py_envs/bin/activate; docker build -t cbagade/cont-i-img:v5 .'
+                sh 'cd py_continuous_integration; . ~/py_envs/bin/activate; docker build -t anant5/cont-i-img:v5 .'
             }
         }
 
@@ -54,7 +54,7 @@ pipeline {
 
         stage('PushDockerImage') {
             steps {
-                sh 'cd py_continuous_integration; docker push cbagade/cont-i-img:v5'
+                sh 'cd py_continuous_integration; docker push anant5/cont-i-img:v5'
             }
         }
     }
